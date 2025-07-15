@@ -625,13 +625,18 @@ body {
 
 .video-container {
   position: relative;
+  width: 100%;
+  max-width: 300px;
+  background-color: #111;
   border: 2px solid #333;
   border-radius: 12px;
-  padding: 10px;
-  background-color: #111;
-  width: 250px;
-  transition: transform 0.4s ease;
-  margin-bottom: 30px; /* Adiciona espaço entre os vídeos */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .video-container:hover {
@@ -640,19 +645,21 @@ body {
 
 .video-container video {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  cursor: pointer;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 0;
   display: block;
-  pointer-events: none; /* vídeo não clicável diretamente */
+  pointer-events: none;
 }
 
+
 .video-description {
-  margin-top: 10px;
+  padding: 10px 12px;
   font-size: 0.95rem;
   color: #ccc;
   text-align: left;
 }
+
 
 /* Botão de play fake */
 .video-container::before {
@@ -663,12 +670,13 @@ body {
   transform: translate(-50%, -50%);
   font-size: 3rem;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
   padding: 10px 16px;
   pointer-events: none;
   z-index: 2;
 }
+
 
 /* EXPANDIDO */
 .video-expandido {
